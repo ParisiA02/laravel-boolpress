@@ -17,5 +17,9 @@
             @foreach ($post -> tags as $tag)
                 {{$tag -> name}} |
             @endforeach
+        @auth
+            <br><a href="{{route('post.edit', $post -> id)}}">EDIT</a>
+            <a href="{{route('post.delete', $post -> id)}}">DELETE</a>
+        @endif
     @endforeach
 @endsection
