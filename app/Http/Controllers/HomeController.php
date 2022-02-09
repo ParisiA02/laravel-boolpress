@@ -44,19 +44,11 @@ class HomeController extends Controller
         ]);
         $data['author'] = Auth::user() -> name;
 
-        $id = Post::create($data) -> id;
-        
-
-        $tags = Tag::findOrFail($request -> get('tags'));
-        
         $post = Post::make($data);
-
-
-        $post -> tags() ->attach($tags);
-
-        
-        $post -> save();
-
+        $tag  = Tag::findOrFail($request->get('tags'));
+        $post->save();
+        $post->tags()->attach($tag);
+        $post->save();
         return redirect() -> route('post');
     }
 }

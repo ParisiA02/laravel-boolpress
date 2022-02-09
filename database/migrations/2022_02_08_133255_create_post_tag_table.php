@@ -14,8 +14,6 @@ class CreatePostTagTable extends Migration
     public function up()
     {
         Schema::create('post_tag', function (Blueprint $table) {
-            $table->id();
-
             $table -> bigInteger('post_id') -> unsigned();
             $table -> bigInteger('tag_id') -> unsigned();
 

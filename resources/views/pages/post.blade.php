@@ -13,9 +13,9 @@
 
         <h3>{{$post -> title}} - Author: {{$post -> author}}</h3>
         realease date: {{$post -> date}}<br><br>
-        
+            Tag: 
             @foreach ($post -> tags as $tag)
-                Tag: {{$tag -> name}} |
+                {{$tag -> name}} |
             @endforeach
     @endforeach
 @endsection
